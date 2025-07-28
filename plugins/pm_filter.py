@@ -86,7 +86,7 @@ async def pm_text(bot, message):
 @Client.on_callback_query(filters.regex(r"^next"))
 async def next_page(bot, query):
     ident, req, key, offset = query.data.split("_")
-    curr_time = datetime.now(pytz.timezone('Asia/Kolkata')).time()
+    curr_time = datetime.now(pytz.timezone('Asia/Jakarta')).time()
     if int(req) not in [query.from_user.id, 0]:
         return await query.answer(script.ALRT_TXT.format(query.from_user.first_name), show_alert=True)
     try:
@@ -212,7 +212,7 @@ async def next_page(bot, query):
                 ],
             )
     if not settings["button"]:
-        cur_time = datetime.now(pytz.timezone('Asia/Kolkata')).time()
+        cur_time = datetime.now(pytz.timezone('Asia/Jakarta')).time()
         time_difference = timedelta(hours=cur_time.hour, minutes=cur_time.minute, seconds=(cur_time.second+(cur_time.microsecond/1000000))) - timedelta(hours=curr_time.hour, minutes=curr_time.minute, seconds=(curr_time.second+(curr_time.microsecond/1000000)))
         remaining_seconds = "{:.2f}".format(time_difference.total_seconds())
         cap = await get_cap(settings, remaining_seconds, files, query, total, search)
@@ -315,7 +315,7 @@ async def years_cb_handler(client: Client, query: CallbackQuery):
 @Client.on_callback_query(filters.regex(r"^fy#"))
 async def filter_yearss_cb_handler(client: Client, query: CallbackQuery):
     _, lang, key = query.data.split("#")
-    curr_time = datetime.now(pytz.timezone('Asia/Kolkata')).time()
+    curr_time = datetime.now(pytz.timezone('Asia/Jakarta')).time()
     search = FRESH.get(key)
     try:
         search = search.replace(' ', '_')
@@ -410,7 +410,7 @@ async def filter_yearss_cb_handler(client: Client, query: CallbackQuery):
         btn.append([InlineKeyboardButton(text="↭ ʙᴀᴄᴋ ᴛᴏ ʜᴏᴍᴇ ↭", callback_data=f"fy#homepage#{key}")])
     
     if not settings["button"]:
-        cur_time = datetime.now(pytz.timezone('Asia/Kolkata')).time()
+        cur_time = datetime.now(pytz.timezone('Asia/Jakarta')).time()
         time_difference = timedelta(hours=cur_time.hour, minutes=cur_time.minute, seconds=(cur_time.second+(cur_time.microsecond/1000000))) - timedelta(hours=curr_time.hour, minutes=curr_time.minute, seconds=(curr_time.second+(curr_time.microsecond/1000000)))
         remaining_seconds = "{:.2f}".format(time_difference.total_seconds())
         cap = await get_cap(settings, remaining_seconds, files, query, total_results, search)
@@ -481,7 +481,7 @@ async def episodes_cb_handler(client: Client, query: CallbackQuery):
 @Client.on_callback_query(filters.regex(r"^fe#"))
 async def filter_episodes_cb_handler(client: Client, query: CallbackQuery):
     _, lang, key = query.data.split("#")
-    curr_time = datetime.now(pytz.timezone('Asia/Kolkata')).time()
+    curr_time = datetime.now(pytz.timezone('Asia/Jakarta')).time()
     search = FRESH.get(key)
     try:
         search = search.replace(' ', '_')
@@ -576,7 +576,7 @@ async def filter_episodes_cb_handler(client: Client, query: CallbackQuery):
         btn.append([InlineKeyboardButton(text="↭ ʙᴀᴄᴋ ᴛᴏ ʜᴏᴍᴇ ↭", callback_data=f"fe#homepage#{key}")])
     
     if not settings["button"]:
-        cur_time = datetime.now(pytz.timezone('Asia/Kolkata')).time()
+        cur_time = datetime.now(pytz.timezone('Asia/Jakarta')).time()
         time_difference = timedelta(hours=cur_time.hour, minutes=cur_time.minute, seconds=(cur_time.second+(cur_time.microsecond/1000000))) - timedelta(hours=curr_time.hour, minutes=curr_time.minute, seconds=(curr_time.second+(curr_time.microsecond/1000000)))
         remaining_seconds = "{:.2f}".format(time_difference.total_seconds())
         cap = await get_cap(settings, remaining_seconds, files, query, total_results, search)
@@ -649,7 +649,7 @@ async def languages_cb_handler(client: Client, query: CallbackQuery):
 @Client.on_callback_query(filters.regex(r"^fl#"))
 async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
     _, lang, key = query.data.split("#")
-    curr_time = datetime.now(pytz.timezone('Asia/Kolkata')).time()
+    curr_time = datetime.now(pytz.timezone('Asia/Jakarta')).time()
     search = FRESH.get(key)
     try:
         search = search.replace(' ', '_')
@@ -744,7 +744,7 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
         btn.append([InlineKeyboardButton(text="↭ ʙᴀᴄᴋ ᴛᴏ ʜᴏᴍᴇ ↭", callback_data=f"fl#homepage#{key}")])
     
     if not settings["button"]:
-        cur_time = datetime.now(pytz.timezone('Asia/Kolkata')).time()
+        cur_time = datetime.now(pytz.timezone('Asia/Jakarta')).time()
         time_difference = timedelta(hours=cur_time.hour, minutes=cur_time.minute, seconds=(cur_time.second+(cur_time.microsecond/1000000))) - timedelta(hours=curr_time.hour, minutes=curr_time.minute, seconds=(curr_time.second+(curr_time.microsecond/1000000)))
         remaining_seconds = "{:.2f}".format(time_difference.total_seconds())
         cap = await get_cap(settings, remaining_seconds, files, query, total_results, search)
@@ -817,7 +817,7 @@ async def seasons_cb_handler(client: Client, query: CallbackQuery):
 @Client.on_callback_query(filters.regex(r"^fs#"))
 async def filter_seasons_cb_handler(client: Client, query: CallbackQuery):
     _, seas, key = query.data.split("#")
-    curr_time = datetime.now(pytz.timezone('Asia/Kolkata')).time()
+    curr_time = datetime.now(pytz.timezone('Asia/Jakarta')).time()
     search = FRESH.get(key)
     try:
         search = search.replace(' ', '_')
@@ -920,7 +920,7 @@ async def filter_seasons_cb_handler(client: Client, query: CallbackQuery):
         btn.append([InlineKeyboardButton(text="↭ ʙᴀᴄᴋ ᴛᴏ ʜᴏᴍᴇ ↭", callback_data=f"next_{req}_{key}_{offset}")])
     
     if not settings["button"]:
-        cur_time = datetime.now(pytz.timezone('Asia/Kolkata')).time()
+        cur_time = datetime.now(pytz.timezone('Asia/Jakarta')).time()
         time_difference = timedelta(hours=cur_time.hour, minutes=cur_time.minute, seconds=(cur_time.second+(cur_time.microsecond/1000000))) - timedelta(hours=curr_time.hour, minutes=curr_time.minute, seconds=(curr_time.second+(curr_time.microsecond/1000000)))
         remaining_seconds = "{:.2f}".format(time_difference.total_seconds())
         total_results = len(files)
@@ -1079,7 +1079,7 @@ async def filter_qualities_cb_handler(client: Client, query: CallbackQuery):
         btn.append([InlineKeyboardButton(text="↭ ʙᴀᴄᴋ ᴛᴏ ʜᴏᴍᴇ ↭", callback_data=f"next_{req}_{key}_{offset}")])
     
     if not settings["button"]:
-        cur_time = datetime.now(pytz.timezone('Asia/Kolkata')).time()
+        cur_time = datetime.now(pytz.timezone('Asia/Jakarta')).time()
         time_difference = timedelta(hours=cur_time.hour, minutes=cur_time.minute, seconds=(cur_time.second+(cur_time.microsecond/1000000))) - timedelta(hours=curr_time.hour, minutes=curr_time.minute, seconds=(curr_time.second+(curr_time.microsecond/1000000)))
         remaining_seconds = "{:.2f}".format(time_difference.total_seconds())
         total_results = len(files)
@@ -2553,7 +2553,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     await query.answer(MSG_ALRT)
 
 async def auto_filter(client, name, msg, reply_msg, ai_search, spoll=False):
-    curr_time = datetime.now(pytz.timezone('Asia/Kolkata')).time()
+    curr_time = datetime.now(pytz.timezone('Asia/Jakarta')).time()
     if not spoll:
         message = msg
         if message.text.startswith("/"): return  # ignore commands
@@ -2650,7 +2650,7 @@ async def auto_filter(client, name, msg, reply_msg, ai_search, spoll=False):
             [InlineKeyboardButton(text="𝐍𝐎 𝐌𝐎𝐑𝐄 𝐏𝐀𝐆𝐄𝐒 𝐀𝐕𝐀𝐈𝐋𝐀𝐁𝐋𝐄",callback_data="pages")]
         )
     imdb = await get_poster(search, file=(files[0])['file_name']) if settings["imdb"] else None
-    cur_time = datetime.now(pytz.timezone('Asia/Kolkata')).time()
+    cur_time = datetime.now(pytz.timezone('Asia/Jakarta')).time()
     time_difference = timedelta(hours=cur_time.hour, minutes=cur_time.minute, seconds=(cur_time.second+(cur_time.microsecond/1000000))) - timedelta(hours=curr_time.hour, minutes=curr_time.minute, seconds=(curr_time.second+(curr_time.microsecond/1000000)))
     remaining_seconds = "{:.2f}".format(time_difference.total_seconds())
     TEMPLATE = script.IMDB_TEMPLATE_TXT
